@@ -15,15 +15,40 @@
  */
 package org.japo.java.main;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author Bianca Antonela Glavan - biancaantonela.glavan.alum@iescamp.es
  */
 public class Main {
+
+    public static final Scanner SCN
+            = new Scanner(System.in, "Windows-1252")
+                    .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
+
     public static void main(String[] args) {
-        
-    
-        
+
+        // Variable
+        int talla;
+
+        // Cuarentena
+        try {
+
+            System.out.println("Introduce la talla del zapato:");
+            talla = SCN.nextInt();
+
+            System.out.println("La talla del zapato es: " + talla);
+
+        } catch (Exception e) {
+            // Mensaje
+            System.out.println("ERROR: Entrada incorrecta");
+        } finally {
+            // Borrar buffer
+            SCN.nextLine();
+        }
+
     }
-    
+
 }
